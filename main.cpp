@@ -49,7 +49,7 @@ int main(int args, char* argv[]) {
                 cv2.notify_all();
                 break;
             }
-            for (int i = 0; i < 2; ++i) {
+            for (int i = 0; i < subscribers.size(); ++i) {
                 subscribers[i]->output(buffer);
             }
             buffer.resize(0);

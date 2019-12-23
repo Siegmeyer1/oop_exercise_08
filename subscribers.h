@@ -7,13 +7,13 @@
 
 class SubscriberInterface {
 public:
-    virtual void output(std::vector<std::shared_ptr<figures::Figure>>) = 0;
+    virtual void output(std::vector<std::shared_ptr<figures::Figure>>&) = 0;
     virtual ~SubscriberInterface() = default;
 };
 
 class ConsolePrint : public SubscriberInterface {
 public:
-    void output(std::vector<std::shared_ptr<figures::Figure>> buffer) override {
+    void output(std::vector<std::shared_ptr<figures::Figure>>& buffer) override {
         for (auto& figure : buffer) {
             figure->PrintOut(std::cout);
         }
@@ -23,7 +23,7 @@ public:
 class DocumentPrint : public SubscriberInterface {
 public:
     DocumentPrint() : a(1) {}
-    void output(std::vector<std::shared_ptr<figures::Figure>> buffer) override {
+    void output(std::vector<std::shared_ptr<figures::Figure>>& buffer) override {
         std::string name = std::to_string(a);
         name += ".txt";
         std::ofstream file;
