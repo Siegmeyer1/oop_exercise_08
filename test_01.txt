@@ -1,0 +1,5 @@
+square 0 0 3 3
+square 0 0 3 3
+square 0 0 3 3
+quit
+
